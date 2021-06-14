@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="807.0" prefWidth="1249.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.gestionBankController">
+   <children>
+      <Pane prefHeight="807.0" prefWidth="270.0" style="-fx-background-color: #00008B;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="979.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label alignment="CENTER" layoutX="46.0" layoutY="44.0" prefHeight="46.0" prefWidth="165.0" style="-fx-border-color: #FFFFFF;" text="Gestion de banque" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Button layoutX="46.0" layoutY="171.0" mnemonicParsing="false" onAction="#client" prefHeight="46.0" prefWidth="165.0" style="-fx-background-color: #7CFC00; -fx-background-radius: 50px;" text="Client" textFill="WHITE">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Button>
+            <Button layoutX="46.0" layoutY="229.0" mnemonicParsing="false" onAction="#compte" prefHeight="46.0" prefWidth="165.0" style="-fx-background-color: #7CFC00; -fx-background-radius: 50px;" text="Compte" textFill="WHITE">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Button>
+            <Button layoutX="46.0" layoutY="694.0" mnemonicParsing="false" onAction="#logout" prefHeight="46.0" prefWidth="165.0" style="-fx-background-color: #FF0000; -fx-background-radius: 50px;" text="EXIT" textFill="WHITE">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Button>
+            <Button layoutX="46.0" layoutY="288.0" mnemonicParsing="false" onAction="#transactions" prefHeight="46.0" prefWidth="165.0" style="-fx-background-color: #7CFC00; -fx-background-radius: 50px;" text="Transactions" textFill="WHITE">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Button>
+            <Button layoutX="46.0" layoutY="345.0" mnemonicParsing="false" onAction="#virement" prefHeight="46.0" prefWidth="165.0" style="-fx-background-color: #7CFC00; -fx-background-radius: 50px;" text="Virement" textFill="WHITE">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <VBox alignment="TOP_CENTER" layoutX="270.0" prefHeight="131.0" prefWidth="979.0" style="-fx-background-color: #808080;" AnchorPane.bottomAnchor="676.0" AnchorPane.leftAnchor="270.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="39.0" prefWidth="156.0" text="Statistique" textFill="WHITE">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="93.0" prefWidth="979.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="36.0" prefWidth="173.0" text="Nombre des comptes" textFill="WHITE">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="numberCompte" alignment="CENTER" disable="true">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label alignment="CENTER" prefHeight="36.0" prefWidth="173.0" text="Nombre des titulaires" textFill="WHITE">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="numberClient" alignment="CENTER" disable="true" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Pane fx:id="client" layoutX="270.0" layoutY="131.0" prefHeight="231.0" prefWidth="285.0" style="-fx-background-color: #C0C0C0;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="270.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="131.0">
+         <children>
+            <Label layoutX="11.0" layoutY="127.0" prefHeight="39.0" prefWidth="150.0" text="Identifiant de client" />
+            <TextField fx:id="cin" layoutX="179.0" layoutY="127.0" prefHeight="39.0" prefWidth="186.0" />
+            <TextField fx:id="nomClient" layoutX="179.0" layoutY="179.0" prefHeight="39.0" prefWidth="186.0" />
+            <Label layoutX="11.0" layoutY="179.0" prefHeight="39.0" prefWidth="150.0" text="Nom de client" />
+            <Label layoutX="11.0" layoutY="230.0" prefHeight="39.0" prefWidth="150.0" text="Prénom de client" />
+            <TextField fx:id="prenomClient" layoutX="179.0" layoutY="230.0" prefHeight="39.0" prefWidth="186.0" />
+            <Label layoutX="11.0" layoutY="290.0" prefHeight="39.0" prefWidth="150.0" text="Adresse mail" />
+            <TextField fx:id="mailClient" layoutX="179.0" layoutY="290.0" prefHeight="39.0" prefWidth="186.0" />
+            <TableView fx:id="tableClient" layoutX="379.0" layoutY="130.0" onMouseClicked="#getSelectedClient" prefHeight="413.0" prefWidth="586.0">
+              <columns>
+                <TableColumn fx:id="cinTClient" prefWidth="116.0" text="CIN" />
+                <TableColumn fx:id="nomTClient" prefWidth="121.0" text="Nom" />
+                  <TableColumn fx:id="prenomTClient" prefWidth="126.0" text="Prénom" />
+                  <TableColumn fx:id="mailTClient" minWidth="1.0" prefWidth="222.0" text="Adresse mail" />
+              </columns>
+            </TableView>
+            <TextField fx:id="searchClient" layoutX="594.0" layoutY="72.0" prefHeight="39.0" prefWidth="370.0" />
+            <Label alignment="CENTER_RIGHT" layoutX="418.0" layoutY="72.0" prefHeight="39.0" prefWidth="165.0" text="Chercher :" />
+            <Button layoutX="16.0" layoutY="377.0" mnemonicParsing="false" onAction="#ajouterClient" prefHeight="46.0" prefWidth="354.0" style="-fx-background-color: #00b712; -fx-background-radius: 50px;" text="Ajouter un client">
+               <textFill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="#f8f8f8" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </textFill></Button>
+            <Button layoutX="16.0" layoutY="438.0" mnemonicParsing="false" onAction="#modifiercl" prefHeight="46.0" prefWidth="354.0" style="-fx-background-color: #00bfff; -fx-background-radius: 50px;" text="Modifier informations">
+               <textFill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="WHITE" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Button>
+            <Button layoutX="16.0" layoutY="497.0" mnemonicParsing="false" onAction="#supClient" prefHeight="46.0" prefWidth="354.0" style="-fx-background-color: #ff0000; -fx-background-radius: 50px;" text="Supprimer un client" textFill="WHITE" />
+            <Button layoutX="16.0" layoutY="557.0" mnemonicParsing="false" onAction="#clearCl" prefHeight="46.0" prefWidth="354.0" style="-fx-background-color: #f6ff00; -fx-background-radius: 50px;" text="Vider " textFill="#fffefe">
+               <font>
+                  <Font size="21.0" />
+               </font></Button>
+            <Label fx:id="confirmCl" alignment="CENTER" layoutX="490.0" layoutY="573.0" prefHeight="46.0" prefWidth="336.0" style="-fx-border-radius: 50px; -fx-border-color: #ffffff;" textFill="WHITE" visible="false" />
+         </children>
+      </Pane>
+      <Pane fx:id="compte" layoutX="270.0" layoutY="131.0" prefHeight="241.0" prefWidth="295.0" style="-fx-background-color: #C0C0C0;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="270.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="131.0">
+         <children>
+            <Label layoutX="11.0" layoutY="127.0" prefHeight="39.0" prefWidth="150.0" text="Numero de compte" />
+            <TextField fx:id="numCompte" layoutX="179.0" layoutY="127.0" prefHeight="39.0" prefWidth="186.0" />
+            <TextField fx:id="solde" layoutX="179.0" layoutY="179.0" prefHeight="39.0" prefWidth="186.0" />
+            <Label layoutX="11.0" layoutY="179.0" prefHeight="39.0" prefWidth="150.0" text="Solde" />
+            <Label layoutX="11.0" layoutY="230.0" prefHeight="39.0" prefWidth="150.0" text="Montant de Découvert" />
+            <TextField fx:id="montantDecouvert" layoutX="179.0" layoutY="230.0" prefHeight="39.0" prefWidth="186.0" />
+            <Label layoutX="11.0" layoutY="283.0" prefHeight="39.0" prefWidth="150.0" text="Montant de debit" />
+            <TextField fx:id="montantDebit" layoutX="179.0" layoutY="283.0" prefHeight="39.0" prefWidth="186.0" />
+            <TableView fx:id="tableCompte" layoutX="385.0" layoutY="130.0" onMouseClicked="#getSelectedCompte" prefHeight="413.0" prefWidth="580.0">
+               <columns>
+                  <TableColumn fx:id="numTC" prefWidth="49.0" text="Num compte" />
+                  <TableColumn fx:id="soldeTC" prefWidth="85.0" text="Solde" />
+                  <TableColumn fx:id="montantTCDecouvert" prefWidth="87.0" text="MontantDecouverMax" />
+                  <TableColumn fx:id="montantTCDebit" minWidth="1.0" prefWidth="130.0" text="MontantDebitMax" />
+                  <TableColumn fx:id="etatTC" prefWidth="134.0" text="Etat" />
+                  <TableColumn fx:id="titulaireTC" prefWidth="94.0" text="Titulaire" />
+               </columns>
+            </TableView>
+            <Button layoutX="14.0" layoutY="430.0" mnemonicParsing="false" onAction="#ajouterCompte" prefHeight="46.0" prefWidth="354.0" style="-fx-background-color: #00b712; -fx-background-radius: 50px;" text="Ajouter un Compte">
+               <textFill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="#f8f8f8" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Button>
+            <Button layoutX="14.0" layoutY="491.0" mnemonicParsing="false" onAction="#modifiercp" prefHeight="46.0" prefWidth="354.0" style="-fx-background-color: #00bfff; -fx-background-radius: 50px;" text="Modifier informations de compte">
+               <textFill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="WHITE" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Button>
+            <Button layoutX="14.0" layoutY="550.0" mnemonicParsing="false" onAction="#supCompte" prefHeight="46.0" prefWidth="354.0" style="-fx-background-color: #ff0000; -fx-background-radius: 50px;" text="Supprimer un Compte" textFill="WHITE" />
+            <Button layoutX="14.0" layoutY="610.0" mnemonicParsing="false" onAction="#clearCp" prefHeight="46.0" prefWidth="354.0" style="-fx-background-color: #f6ff00; -fx-background-radius: 50px;" text="Vider " textFill="#fffefe">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Button>
+            <Label layoutX="11.0" layoutY="329.0" prefHeight="39.0" prefWidth="150.0" text="Situation" />
+            <Label layoutX="11.0" layoutY="379.0" prefHeight="39.0" prefWidth="150.0" text="Titulaire de compte" />
+            <TextField fx:id="situation" layoutX="179.0" layoutY="329.0" prefHeight="39.0" prefWidth="186.0" />
+            <ComboBox fx:id="titulaire" layoutX="179.0" layoutY="378.0" prefHeight="39.0" prefWidth="186.0" promptText="choisir le titulaire " />
+            <Label fx:id="confirm" alignment="CENTER" layoutX="516.0" layoutY="587.0" prefHeight="46.0" prefWidth="319.0" style="-fx-border-radius: 55px; -fx-border-color: #ffffff;" textFill="WHITE" visible="false" />
+            <Button layoutX="443.0" layoutY="71.0" mnemonicParsing="false" onAction="#maxSolde" prefHeight="45.0" prefWidth="187.0" style="-fx-background-color: #7CFC00; -fx-background-radius: 50px;" text="max solde" textFill="WHITE">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Button>
+            <Button layoutX="675.0" layoutY="71.0" mnemonicParsing="false" onAction="#compteDecouvert" prefHeight="39.0" prefWidth="209.0" style="-fx-background-color: #7CFC00; -fx-background-radius: 50px;" text="compte decouverte" textFill="WHITE">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Pane fx:id="transactions" layoutX="270.0" layoutY="131.0" prefHeight="473.0" prefWidth="574.0" style="-fx-background-color: #C0C0C0;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="270.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="131.0">
+         <children>
+            <TextField fx:id="tmont" layoutX="597.0" layoutY="383.0" prefHeight="31.0" prefWidth="310.0" />
+            <Label fx:id="transConfirm" alignment="CENTER" layoutX="312.0" layoutY="566.0" prefHeight="39.0" prefWidth="336.0" style="-fx-background-radius: 50px; -fx-background-color: #e00202;" textFill="#f8f8f8" visible="false" />
+            <Label layoutX="597.0" layoutY="347.0" prefHeight="31.0" prefWidth="156.0" text="Montant :" />
+            <Label layoutX="598.0" layoutY="116.0" prefHeight="31.0" prefWidth="156.0" text="Numero de compte :" />
+            <Button layoutX="138.0" layoutY="204.0" mnemonicParsing="false" onAction="#Retrait" prefHeight="31.0" prefWidth="203.0" text="Retrait d'argent" />
+            <Button layoutX="138.0" layoutY="261.0" mnemonicParsing="false" onAction="#Debiter" prefHeight="31.0" prefWidth="203.0" text="Depot d'argent" />
+            <ComboBox fx:id="tncp" layoutX="597.0" layoutY="147.0" prefHeight="31.0" prefWidth="187.0" promptText="numéro de compte" />
+         </children>
+      </Pane>
+      <Pane fx:id="virement" layoutX="270.0" layoutY="131.0" prefHeight="676.0" prefWidth="979.0" visible="false">
+         <children>
+            <Label layoutX="168.0" layoutY="84.0" prefHeight="36.0" prefWidth="203.0" text="numero de compte emetteur" />
+            <Label layoutX="544.0" layoutY="84.0" prefHeight="36.0" prefWidth="209.0" text="numero de compte recepteur" />
+            <TextField fx:id="numEmetteur" layoutX="168.0" layoutY="139.0" prefHeight="31.0" prefWidth="203.0" />
+            <TextField fx:id="numRecepteur" layoutX="544.0" layoutY="139.0" prefHeight="31.0" prefWidth="209.0" />
+            <Label layoutX="168.0" layoutY="300.0" prefHeight="31.0" prefWidth="209.0" text="Montant" />
+            <TextField fx:id="montViremment" layoutX="168.0" layoutY="347.0" prefHeight="31.0" prefWidth="209.0" />
+            <Button layoutX="527.0" layoutY="342.0" mnemonicParsing="false" onAction="#opperationV" prefHeight="36.0" prefWidth="252.0" text="effectuer le virement" />
+            <Label fx:id="viremmentConfirm" alignment="CENTER" layoutX="314.0" layoutY="511.0" prefHeight="39.0" prefWidth="310.0" style="-fx-background-color: #e70f0f; -fx-background-radius: 60px;" textFill="#f8f8f8" visible="false" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

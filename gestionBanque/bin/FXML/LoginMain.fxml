@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="480.0" prefWidth="677.0" style="-fx-background-color: #2D3447;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.LoginController">
+   <children>
+      <TextField fx:id="username" layoutX="219.0" layoutY="193.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.88" prefHeight="31.0" prefWidth="280.0" promptText="Saisie votre nom ">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </TextField>
+      <PasswordField fx:id="password" layoutX="219.0" layoutY="240.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.81" prefHeight="31.0" prefWidth="280.0" promptText="Saisie votre mot de passe">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </PasswordField>
+      <Button fx:id="connexion" layoutX="380.0" layoutY="317.0" mnemonicParsing="false" onAction="#loginAction" prefHeight="39.0" prefWidth="105.0" style="-fx-background-color: #2196f3;" text="Connexion" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="270.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="124.0" fitWidth="149.0" layoutX="287.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../Desktop/login/csm_Login_c148e8b0a7.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="exit" layoutX="244.0" layoutY="317.0" mnemonicParsing="false" onAction="#exit" prefHeight="39.0" prefWidth="105.0" style="-fx-background-color: #eb0400;" text="Exit" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
